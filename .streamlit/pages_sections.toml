@@ -1,0 +1,14 @@
+[[pages]]
+path = "./page/home.py"
+name = "Homepage"
+icon = ":material/home:"
+
+[[pages]]
+name = "Showcase Apps"
+icon = ""
+is_section = true
+
+[[pages]]
+path = "./page/cvd_risk.py"
+name = "Cardiovascular Disease Risk"
+icon = ":material/heart_check:"
