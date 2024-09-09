@@ -12,3 +12,8 @@ is_section = true
 path = "./page/cvd_risk.py"
 name = "Cardiovascular Disease Risk"
 icon = ":material/heart_check:"
+
+[[pages]]
+path = "./page/hypertension_risk.py"
+name = "Early Detection Hypertension Risk"
+icon = ":material/cardiology:"
