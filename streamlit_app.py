@@ -26,7 +26,7 @@ st.markdown(
 nav = get_nav_from_toml(".streamlit/pages_sections.toml")
 pg = st.navigation(nav)
 
-st.logo("Data Science Team Logo wide project showcase.png")
+st.logo("PULSE LOGO wide streamlit.png")
 
 # Run the app with navigation
 pg.run()
