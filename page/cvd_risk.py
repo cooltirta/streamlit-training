@@ -2,19 +2,20 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 js_files = [
-    './cvd_risk_diabetic_nonsmoker.js',
-    './cvd_risk_diabetic_smoker.js',
-    './cvd_risk_nondiabetic_nonsmoker.js',
-    './cvd_risk_nondiabetic_smoker.js',
-    './cvd_risk_nulldiabetic_nonsmoker.js',
-    './cvd_risk_nulldiabetic_smoker.js'
+    './model_logic/cvd_risk/cvd_risk_diabetic_nonsmoker.js',
+    './model_logic/cvd_risk/cvd_risk_diabetic_smoker.js',
+    './model_logic/cvd_risk/cvd_risk_nondiabetic_nonsmoker.js',
+    './model_logic/cvd_risk/cvd_risk_nondiabetic_smoker.js',
+    './model_logic/cvd_risk/cvd_risk_nulldiabetic_nonsmoker.js',
+    './model_logic/cvd_risk/cvd_risk_nulldiabetic_smoker.js'
 ]
 
 js_scripts = {}
 
 for file in js_files:
     with open(file, 'r') as f:
-        js_scripts[file.lstrip('./')] = f.read()
+        sp = file.split('/')
+        js_scripts[sp[len(sp)-1]] = f.read()
 
 # Page Title  
 st.title('**:material/heart_check: Cardiovascular Disease Risk**')

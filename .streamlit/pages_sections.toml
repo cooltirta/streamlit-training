@@ -17,3 +17,8 @@ icon = ":material/heart_check:"
 path = "./page/hypertension_risk.py"
 name = "Early Detection Hypertension Risk"
 icon = ":material/cardiology:"
+
+[[pages]]
+path = "./page/zscore.py"
+name = "Toddler Z-Score Calculator"
+icon = ":material/child_care:"
