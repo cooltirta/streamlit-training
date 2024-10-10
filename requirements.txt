@@ -1,3 +1,4 @@
 streamlit
 st-pages
 streamlit-custom-component
+python-dotenv
