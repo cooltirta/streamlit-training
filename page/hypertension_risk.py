@@ -5,7 +5,8 @@ import os
 load_dotenv()
 
 
-hypertension_password = os.getenv("HYPERTENSION_PASSWORD")
+hypertension_password = st.secrets["HYPERTENSION_PASSWORD"]
+# hypertension_password = os.getenv("HYPERTENSION_PASSWORD")
 
 # Initialize the session state for password verification
 if "hypertension_password_correct" not in st.session_state:

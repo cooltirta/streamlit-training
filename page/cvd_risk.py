@@ -5,7 +5,8 @@ import os
 
 load_dotenv()
 
-cvd_password = os.getenv("CVD_PASSWORD")
+cvd_password = st.secrets["CVD_PASSWORD"]
+# cvd_password = os.getenv("CVD_PASSWORD")
 
 # Initialize the session state for password verification
 if "cvd_password_correct" not in st.session_state:

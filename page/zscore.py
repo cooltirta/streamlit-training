@@ -5,7 +5,8 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-zscore_password = os.getenv("ZSCORE_PASSWORD")
+zscore_password = st.secrets["ZSCORE_PASSWORD"]
+# zscore_password = os.getenv("ZSCORE_PASSWORD")
 
 # Initialize the session state for password verification
 if "zscore_password_correct" not in st.session_state:
