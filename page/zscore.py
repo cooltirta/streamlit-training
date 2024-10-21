@@ -12,6 +12,14 @@ zscore_password = st.secrets["ZSCORE_PASSWORD"]
 if "zscore_password_correct" not in st.session_state:
     st.session_state.zscore_password_correct = False
 
+# Place all the page content within this block
+st.title('**:material/child_care: Toddler Z-Score Calculator**')
+
+now = date.today()
+
+st.write('''The Z-score calculator for toddler measurement allows you to easily determine how a child's height and weight compare to standardized growth charts, helping to assess whether their growth is within a healthy range or if there may be potential concerns.''')
+st.divider()
+
 # Password Check
 if not st.session_state["zscore_password_correct"]:
     with st.form("login_form_zscore"):
@@ -26,14 +34,6 @@ if not st.session_state["zscore_password_correct"]:
             st.error("Incorrect password. Please try again.")
             st.stop()  # Stop execution here if the password is incorrect
 else:
-    # Place all the page content within this block
-    st.title('**:material/child_care: Toddler Z-Score Calculator**')
-
-    now = date.today()
-
-
-    st.write('''The Z-score calculator for toddler measurement allows you to easily determine how a child's height and weight compare to standardized growth charts, helping to assess whether their growth is within a healthy range or if there may be potential concerns.''')
-    st.divider()
 
     if 'use_dob' not in st.session_state:
         st.session_state.use_dob = False

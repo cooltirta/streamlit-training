@@ -12,6 +12,35 @@ cvd_password = st.secrets["CVD_PASSWORD"]
 if "cvd_password_correct" not in st.session_state:
     st.session_state.cvd_password_correct = False
 
+js_files = [
+    './model_logic/cvd_risk/cvd_risk_diabetic_nonsmoker.js',
+    './model_logic/cvd_risk/cvd_risk_diabetic_smoker.js',
+    './model_logic/cvd_risk/cvd_risk_nondiabetic_nonsmoker.js',
+    './model_logic/cvd_risk/cvd_risk_nondiabetic_smoker.js',
+    './model_logic/cvd_risk/cvd_risk_nulldiabetic_nonsmoker.js',
+    './model_logic/cvd_risk/cvd_risk_nulldiabetic_smoker.js'
+]
+
+js_scripts = {}
+
+for file in js_files:
+    with open(file, 'r') as f:
+        sp = file.split('/')
+        js_scripts[sp[len(sp)-1]] = f.read()
+
+# Page Title  
+st.title('**:material/heart_check: Cardiovascular Disease Risk**')
+
+# Page description
+st.write('This calculator shows the likelihood of a person developing heart or blood vessel disease, whether fatal or not, in the next 10 years. The prediction is based on several factors, such as gender, age, blood pressure, cholesterol levels, smoking habits, and whether or not the person has diabetes.')
+
+# Source URL
+url = 'https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(19)30318-3/fulltext'
+st.write('Source: [World Health Organization cardiovascular disease risk charts: revised models to estimate risk in 21 global regions](%s)' %url)
+
+# Horizontal row
+st.divider()
+
 # Password Check
 if not st.session_state["cvd_password_correct"]:
     with st.form("login_form_cvd"):
@@ -26,35 +55,6 @@ if not st.session_state["cvd_password_correct"]:
             st.error("Incorrect password. Please try again.")
             st.stop()  # Stop execution here if the password is incorrect
 else:
-
-    js_files = [
-        './model_logic/cvd_risk/cvd_risk_diabetic_nonsmoker.js',
-        './model_logic/cvd_risk/cvd_risk_diabetic_smoker.js',
-        './model_logic/cvd_risk/cvd_risk_nondiabetic_nonsmoker.js',
-        './model_logic/cvd_risk/cvd_risk_nondiabetic_smoker.js',
-        './model_logic/cvd_risk/cvd_risk_nulldiabetic_nonsmoker.js',
-        './model_logic/cvd_risk/cvd_risk_nulldiabetic_smoker.js'
-    ]
-
-    js_scripts = {}
-
-    for file in js_files:
-        with open(file, 'r') as f:
-            sp = file.split('/')
-            js_scripts[sp[len(sp)-1]] = f.read()
-
-    # Page Title  
-    st.title('**:material/heart_check: Cardiovascular Disease Risk**')
-
-    # Page description
-    st.write('This calculator shows the likelihood of a person developing heart or blood vessel disease, whether fatal or not, in the next 10 years. The prediction is based on several factors, such as gender, age, blood pressure, cholesterol levels, smoking habits, and whether or not the person has diabetes.')
-
-    # Source URL
-    url = 'https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(19)30318-3/fulltext'
-    st.write('Source: [World Health Organization cardiovascular disease risk charts: revised models to estimate risk in 21 global regions](%s)' %url)
-
-    # Horizontal row
-    st.divider()
 
     # Main Container
     div_main = st.container()
