@@ -22,3 +22,8 @@ icon = ":material/cardiology:"
 path = "./page/zscore.py"
 name = "Toddler Z-Score Calculator"
 icon = ":material/child_care:"
+
+[[pages]]
+path = "./page/diabetes_risk.py"
+name = "Early Detection Diabetes Risk"
+icon = ":material/glucose:"

@@ -2,3 +2,7 @@ streamlit
 st-pages
 streamlit-custom-component
 python-dotenv
+joblib
+lightgbm
+scikit-learn
+pandas

@@ -32,7 +32,15 @@ for file in js_files:
 st.title('**:material/heart_check: Cardiovascular Disease Risk**')
 
 # Page description
+st.subheader('What is the CVD Risk Calculator?')
 st.write('This calculator shows the likelihood of a person developing heart or blood vessel disease, whether fatal or not, in the next 10 years. The prediction is based on several factors, such as gender, age, blood pressure, cholesterol levels, smoking habits, and whether or not the person has diabetes.')
+st.subheader('Who Can Use This Calculator?')
+st.write('The CVD Risk Calculator is intended for adults who wish to assess their risk of cardiovascular disease. It is especially beneficial for individuals over 40, those with existing risk factors like high blood pressure, high cholesterol, diabetes, smoking habits, or a family history of heart disease.')
+st.subheader('Why Use the CVD Risk Calculator?')
+st.write('Understanding your cardiovascular risk empowers you to make informed health decisions. By identifying your risk level, you can take proactive steps to modify your lifestyle, seek medical advice, and implement preventive measures to reduce the likelihood of heart attacks, strokes, and other cardiovascular events.')
+st.subheader('How Does the Calculator Work?')
+st.write('The calculator is based on the World Health Organization cardiovascular disease risk charts, providing an evidence-based assessment of your 10-year risk for cardiovascular disease. By inputting your personal health information—such as gender, age, blood pressure, cholesterol levels, smoking status, and diabetes condition—the calculator utilizes these established charts to estimate your risk.')
+st.write('**:material/warning: Please note** that in this demonstration, the calculator is not integrated with any electronic medical record (EMR) systems. However, it can be integrated into EMR systems in a production environment, allowing for seamless data input and more streamlined risk assessments.')
 
 # Source URL
 url = 'https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(19)30318-3/fulltext'
@@ -44,7 +52,7 @@ st.divider()
 # Password Check
 if not st.session_state["cvd_password_correct"]:
     with st.form("login_form_cvd"):
-        password = st.text_input("Enter the password to access this page:", type="password")
+        password = st.text_input("Enter the password to access this feature:", type="password")
         submit_button = st.form_submit_button("Login")
     
     if submit_button:  # Check occurs only if the button is pressed
