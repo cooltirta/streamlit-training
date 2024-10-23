@@ -12,6 +12,13 @@ load_dotenv()
 diabetes_password = st.secrets["DIABETES_PASSWORD"]
 # diabetes_password = os.getenv("DIABETES_PASSWORD")
 
+# set default values
+AGE = 15
+SYSTOLIC = 60
+FAMILY_HISTORY = None
+EXERCISE = None
+DIET = None
+
 # set default session var
 if "diabetes_password_correct" not in st.session_state:
     st.session_state.diabetes_password_correct = False
@@ -33,13 +40,6 @@ if "diet" not in st.session_state:
 
 # get model
 clf = joblib.load('./model_logic/dm_risk/lightgbm_ASIK_pickle_clean_5f.pkl')
-
-# set default values
-AGE = 15
-SYSTOLIC = 60
-FAMILY_HISTORY = None
-EXERCISE = None
-DIET = None
 
 # CSS Library
 st.markdown('''
