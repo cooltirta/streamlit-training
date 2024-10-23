@@ -4,23 +4,44 @@ import streamlit.components.v1 as components
 import joblib
 import pandas as pd
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
 
+# get password from env
 diabetes_password = st.secrets["DIABETES_PASSWORD"]
 # diabetes_password = os.getenv("DIABETES_PASSWORD")
 
+# set default session var
 if "diabetes_password_correct" not in st.session_state:
     st.session_state.diabetes_password_correct = False
 
+if "age" not in st.session_state:
+    st.session_state.age = AGE
+
+if "systolic" not in st.session_state:
+    st.session_state.systolic = SYSTOLIC
+
+if "family_history" not in st.session_state:
+    st.session_state.family_history = FAMILY_HISTORY
+
+if "exercise" not in st.session_state:
+    st.session_state.exercise = EXERCISE
+
+if "diet" not in st.session_state:
+    st.session_state.diet = DIET
+
+# get model
 clf = joblib.load('./model_logic/dm_risk/lightgbm_ASIK_pickle_clean_5f.pkl')
 
+# set default values
 AGE = 15
 SYSTOLIC = 60
 FAMILY_HISTORY = None
 EXERCISE = None
 DIET = None
 
+# CSS Library
 st.markdown('''
     <style>
         button[title="View fullscreen"] {
@@ -132,25 +153,13 @@ st.markdown('''
     </style>
 ''', unsafe_allow_html=True)
 
-if "age" not in st.session_state:
-    st.session_state.age = AGE
-
-if "systolic" not in st.session_state:
-    st.session_state.systolic = SYSTOLIC
-
-if "family_history" not in st.session_state:
-    st.session_state.family_history = FAMILY_HISTORY
-
-if "exercise" not in st.session_state:
-    st.session_state.exercise = EXERCISE
-
-if "diet" not in st.session_state:
-    st.session_state.diet = DIET
-
+# define title
 st.title('**:material/glucose: Early Detection Diabetes Risk**')
 
+# define main div
 div_main = st.container()
 
+# define columns
 col_top1, col_top2, = div_main.columns(2, vertical_alignment="center")
 
 col_top1.markdown('<p class="medium50">Mari ketahui risiko diabetesmu!</p>', unsafe_allow_html=True)
@@ -181,8 +190,10 @@ else:
     div_main.markdown('<p class="regular18" style="font-size:24px; color:#505F98; text-align:center;">Hasil prediksi ini tidak dimaksudkan untuk menggantikan pengukuran sebenarnya di fasilitas kesehatan, namun untuk membantu memberikan peringatan dini mengenai risiko kamu</p>', unsafe_allow_html=True)
     div_main.markdown('<p style="padding-top:100px;">&nbsp;</p>', unsafe_allow_html=True)
 
+# define columns
     col_mid1, col_mid2 = div_main.columns(2, gap="large")
 
+# input form placeholders
     col_mid1.markdown('<p class="formquestion">Berapa umurmu?</p>', unsafe_allow_html=True)
     placeholder_age = col_mid1.empty()
     col_mid1.markdown('<p class="regular16" style="color:#505F98;">Semakin panjang usia, kemungkinan terkena diabetes tipe 2 semakin tinggi</p>', unsafe_allow_html=True)
@@ -209,8 +220,7 @@ else:
 
     div_main.markdown('<p style="padding-top:100px;">&nbsp;</p>', unsafe_allow_html=True)
 
-    col_mid41, col_mid42, col_mid43, col_mid44 = div_main.columns(4)
-
+# start modal dialog and def calculation
     @st.dialog("Hasil Skrining", width="large")
     def calculate_risk(obj):
         df = pd.DataFrame(obj)
@@ -240,6 +250,13 @@ else:
 
         df['prediction'] = result
 
+        file_path = './diabetes_predictions.csv'
+
+        if not os.path.isfile(file_path):
+            df.to_csv(file_path, index=False)  # Save with header if file does not exist
+        else:
+            df.to_csv(file_path, mode='a', header=False, index=False)  # Append without hea
+
         res = '<b style="color:#CF2B2E;">Tinggi</b>' if result == 'Tinggi' else '<b style="color:#57855D;">Rendah</b>'''
         div_modal = st.container()
         div_modal.markdown(f'''
@@ -268,6 +285,9 @@ else:
             </ul>
         ''', unsafe_allow_html=True)
 
+# define columns
+    col_mid41, col_mid42, col_mid43, col_mid44 = div_main.columns(4)
+
     if col_mid42.button("**Cek Hasil**", type="primary"):
         calculate_risk(
             {
@@ -287,6 +307,7 @@ else:
         st.session_state.exercise = EXERCISE
         st.session_state.diet = DIET
 
+# define input forms
     age = placeholder_age.number_input(
         "Berapa umurmu?",
         min_value=15,
@@ -327,6 +348,7 @@ else:
         key="diet"
     )
 
+# Javascripts
     js = '''
     <script>
         window.parent.document.querySelector("#cekrisikobtn").
