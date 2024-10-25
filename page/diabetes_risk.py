@@ -5,6 +5,7 @@ import joblib
 import pandas as pd
 from dotenv import load_dotenv
 import os
+import requests
 
 load_dotenv()
 
@@ -241,7 +242,7 @@ else:
             'olahraga': 'category'
         })
 
-        probabilities  = clf.predict_proba(df)[:, 1]  # Assuming your model is trained to predict on similar features
+        probabilities  = clf.predict_proba(df)[:, 1]
 
         threshold = 0.037
         prediction = (probabilities >= threshold).astype(int)
@@ -250,12 +251,8 @@ else:
 
         df['prediction'] = result
 
-        file_path = './diabetes_predictions.csv'
-
-        if not os.path.isfile(file_path):
-            df.to_csv(file_path, index=False)  # Save with header if file does not exist
-        else:
-            df.to_csv(file_path, mode='a', header=False, index=False)  # Append without hea
+        url = f'''https://docs.google.com/forms/d/e/1FAIpQLSfWP-9GW9NSUL2gvae4c0xDZ1dxTfeh5k7t8QIWXy6POBUqHw/formResponse?usp=pp_url&entry.1911041054={obj['olahraga'][0]}&entry.104049788={obj['konsumsi_sayur_buah'][0]}&entry.185650305={obj['umur'][0]}&entry.1560480851={obj['sistol'][0]}&entry.761892027={obj['riwayat_keluarga_dm'][0]}&entry.1623306659={result}'''
+        response = requests.get(url)
 
         res = '<b style="color:#CF2B2E;">Tinggi</b>' if result == 'Tinggi' else '<b style="color:#57855D;">Rendah</b>'''
         div_modal = st.container()
