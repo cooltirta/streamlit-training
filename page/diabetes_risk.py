@@ -44,6 +44,7 @@ clf = joblib.load('./model_logic/dm_risk/lightgbm_ASIK_pickle_clean_5f.pkl')
 
 # CSS Library
 st.markdown('''
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=warning" rel="stylesheet" />
     <style>
         button[title="View fullscreen"] {
             visibility: hidden;
@@ -81,7 +82,13 @@ st.markdown('''
             font-size: 24px;
             font-weight: 600;
             text-align: center;
-            margin-left: 100px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .formtitle {
+            font-size: 40px;
+            font-weight: 600;
         }
 
         .formquestion {
@@ -96,7 +103,7 @@ st.markdown('''
             border-radius: 47px;
             opacity: 0px;
             border: none;
-            background: #111B47;
+            background: #7FAA2B;
             color: white;
             font-size: 24px;
             font-weight: 600;
@@ -124,7 +131,7 @@ st.markdown('''
             border-radius: 47px !important;
             opacity: 0px !important;
             border: none !important;
-            background: #A3185B !important;
+            background: #111B47 !important;
             color: white !important;
             font-size: 24px !important;
             font-weight: 600 !important;
@@ -138,7 +145,7 @@ st.markdown('''
             border-radius: 47px !important;
             opacity: 0px !important;
             border: none !important;
-            background: #111B47 !important;
+            background: #7FAA2B !important;
             color: white !important;
             font-size: 24px !important;
             font-weight: 600 !important;
@@ -150,6 +157,10 @@ st.markdown('''
             font-weight: 700;
             line-height: 26px;
             text-align: left;
+        }
+
+        .formbg {
+            background: #DADFE9;
         }
     </style>
 ''', unsafe_allow_html=True)
@@ -168,7 +179,13 @@ col_top1.markdown('''
     <p class="regular18" style="color:#505F98;">Diabetes merupakan penyakit yang berbahaya bagi tubuhmu.<br>
     Mengetahui risiko diabetes tipe 2 anda hanya memerlukan beberapa menit.</p>\n
     <p class="regular18" style="color:#505F98;">Sebelum mengisi, siapkan alat pengukur tekanan darah juga ya.</p>\n
-    <button class="cekrisikobtn" id="cekrisikobtn">Cek Risiko</button>
+    <div style="max-width:fit-content; margin-left:auto; margin-right:auto;"><button class="cekrisikobtn" id="cekrisikobtn">Cek Risiko</button></div>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=warning" />
+''', unsafe_allow_html=True)
+col_top1.markdown('''
+    <div style="padding-bottom:10px;">
+        <div style="margin-left:auto; margin-right:auto; max-width: fit-content; background:#FFFCE7; padding:10px, 20px, 10px, 20px; color:#926c05; text-align:center;">⚠️ Catatan: Hasil prediksi ini hanya sebagai peringatan dini, bukan diagnosis medis</div>
+    </div>
 ''', unsafe_allow_html=True)
 col_top2.image('Frame_4.png')
 
@@ -187,9 +204,25 @@ if not st.session_state["diabetes_password_correct"]:
             st.stop()  # Stop execution here if the password is incorrect
 else:
 
-    div_main.markdown('<p class="medium50" style="font-weight:700; text-align:center;" id="risiko">Risiko Diabetes</p>', unsafe_allow_html=True)
-    div_main.markdown('<p class="regular18" style="font-size:24px; color:#505F98; text-align:center;">Hasil prediksi ini tidak dimaksudkan untuk menggantikan pengukuran sebenarnya di fasilitas kesehatan, namun untuk membantu memberikan peringatan dini mengenai risiko kamu</p>', unsafe_allow_html=True)
-    div_main.markdown('<p style="padding-top:100px;">&nbsp;</p>', unsafe_allow_html=True)
+    div_main.markdown('<p class="medium50" style="font-weight:700; text-align:center;" id="risiko">Yuk, isi form ini buat cek risiko DM2 kamu!</p>', unsafe_allow_html=True)
+    div_main.divider()
+    div_main.markdown('<p class="formtitle" style="text-align:center;">Kamu Siapa Sih?</p>', unsafe_allow_html=True)
+
+# define columns    
+    col_top21, col_top22, col_top23 = div_main.columns(3, vertical_alignment="center")
+    
+    col_top21.markdown('<p class="formquestion">Nama kamu siapa?</p>', unsafe_allow_html=True)
+    placeholder_name = col_top21.empty()
+
+    col_top22.markdown('<p class="formquestion">NIK kamu?</p>', unsafe_allow_html=True)
+    placeholder_nik = col_top22.empty()
+
+    col_top23.markdown('<p class="formquestion">Dimana kamu diperiksa?</p>', unsafe_allow_html=True)
+    placeholder_place = col_top23.empty()
+
+    div_main.markdown('<p style="padding-top:20px;">&nbsp;</p>', unsafe_allow_html=True)
+    div_main.divider()
+    div_main.markdown('<p class="formtitle" style="text-align:center;">Risiko kamu gimana?</p>', unsafe_allow_html=True)
 
 # define columns
     col_mid1, col_mid2 = div_main.columns(2, gap="large")
@@ -197,27 +230,27 @@ else:
 # input form placeholders
     col_mid1.markdown('<p class="formquestion">Berapa umurmu?</p>', unsafe_allow_html=True)
     placeholder_age = col_mid1.empty()
-    col_mid1.markdown('<p class="regular16" style="color:#505F98;">Semakin panjang usia, kemungkinan terkena diabetes tipe 2 semakin tinggi</p>', unsafe_allow_html=True)
+    col_mid1.markdown('<p class="regular16" style="color:#505F98;">Semakin bertambah usia, risiko terkena DM2 juga cenderung meningkat.</p>', unsafe_allow_html=True)
 
     col_mid2.markdown('<p class="formquestion">Berapa tekanan sistolmu?</p>', unsafe_allow_html=True)
     placeholder_systolic = col_mid2.empty()
-    col_mid2.markdown('<p class="regular16" style="color:#505F98;">Tekanan sistol merupakan angka atas pada pengukuran tekanan darah. Kenaikan sistol meningkatkan potensi risiko diabetes tipe 2</p>', unsafe_allow_html=True)
+    col_mid2.markdown('<p class="regular16" style="color:#505F98;">Tekanan sistol merupakan angka atas pada pengukuran tekanan darah. Peningkatan tekanan sistol dapat meningkatkan potensi risiko DM2.</p>', unsafe_allow_html=True)
 
     col_mid21, col_mid22 = div_main.columns(2, gap="large")
 
     col_mid21.markdown('<p class="formquestion" style="padding-top:50px;">Apakah kamu memiliki orang tua atau saudara yang menderita diabetes?</p>', unsafe_allow_html=True)
     placeholder_family_history = col_mid21.empty()
-    col_mid21.markdown('<p class="regular16" style="color:#505F98;">Memiliki kerabat yang menderita diabetes mempunyai risiko yang tinggi terhadap DM2</p>', unsafe_allow_html=True)
+    col_mid21.markdown('<p class="regular16" style="color:#505F98;">Riwayat keluarga dengan diabetes dapat meningkatkan risiko Anda terkena DM2. Mengetahui faktor ini bisa membantu Anda lebih waspada dan mengambil langkah pencegahan yang tepat sejak dini.</p>', unsafe_allow_html=True)
 
     col_mid22.markdown('<p class="formquestion" style="padding-top:50px;">Apakah kamu sering berolahraga, sekiranya 2 jam dalam seminggu?</p>', unsafe_allow_html=True)
     placeholder_exercise = col_mid22.empty()
-    col_mid22.markdown('<p class="regular16" style="color:#505F98;">Memiliki kebiasaan olahraga mengurangi risiko terkena DM2</p>', unsafe_allow_html=True)
+    col_mid22.markdown('<p class="regular16" style="color:#505F98;">Memiliki kebiasaan berolahraga secara teratur dapat berpengaruh terhadap penurunan risiko terkena DM2.</p>', unsafe_allow_html=True)
 
     col_mid31, col_mid32, col_mid33 = div_main.columns(3)
 
     col_mid32.markdown('<p class="formquestion" style="padding-top:50px;">Apakah kamu mengkomsumsi 5 porsi buah sayur tiap harinya?</p>', unsafe_allow_html=True)
     placeholder_diet = col_mid32.empty()
-    col_mid32.markdown('<p class="regular16" style="color:#505F98;">Pola makan sehat membantu mencegah diabetes</p>', unsafe_allow_html=True)
+    col_mid32.markdown('<p class="regular16" style="color:#505F98;">Pola makan yang sehat, termasuk rutin mengonsumsi buah dan sayur, dapat membantu mengurangi risiko terkena diabetes.</p>', unsafe_allow_html=True)
 
     div_main.markdown('<p style="padding-top:100px;">&nbsp;</p>', unsafe_allow_html=True)
 
@@ -283,7 +316,7 @@ else:
         ''', unsafe_allow_html=True)
 
 # define columns
-    col_mid41, col_mid42, col_mid43, col_mid44 = div_main.columns(4)
+    col_mid41, col_mid42, col_mid43, col_mid44 = div_main.columns(4, vertical_alignment="center")
 
     if col_mid42.button("**Cek Hasil**", type="primary"):
         calculate_risk(
@@ -305,6 +338,27 @@ else:
         st.session_state.diet = DIET
 
 # define input forms
+    name = placeholder_name.text_input(
+        "Nama kamu siapa?",
+        placeholder="Nama Lengkap",
+        label_visibility="collapsed",
+        key="name"
+    )
+
+    nik = placeholder_nik.text_input(
+        "NIK kamu?",
+        placeholder="0123456789012345",
+        label_visibility="collapsed",
+        key="nik"
+    )
+
+    place = placeholder_place.text_input(
+        "Dimana kamu diperiksa?",
+        placeholder="Lokasi Periksa",
+        label_visibility="collapsed",
+        key="place"
+    )
+
     age = placeholder_age.number_input(
         "Berapa umurmu?",
         min_value=15,
