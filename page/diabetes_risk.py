@@ -206,49 +206,49 @@ else:
 
     div_main.markdown('<p class="medium50" style="font-weight:700; text-align:center;" id="risiko">Yuk, isi form ini buat cek risiko DM2 kamu!</p>', unsafe_allow_html=True)
     div_main.divider()
-    div_main.markdown('<p class="formtitle" style="text-align:center;">Kamu Siapa Sih?</p>', unsafe_allow_html=True)
+    div_main.markdown('<p class="formtitle" style="text-align:center;">Identitas diri</p>', unsafe_allow_html=True)
 
 # define columns    
     col_top21, col_top22, col_top23 = div_main.columns(3, vertical_alignment="center")
     
-    col_top21.markdown('<p class="formquestion">Nama kamu siapa?</p>', unsafe_allow_html=True)
+    col_top21.markdown('<p class="formquestion">Nama Pasien</p>', unsafe_allow_html=True)
     placeholder_name = col_top21.empty()
 
-    col_top22.markdown('<p class="formquestion">NIK kamu?</p>', unsafe_allow_html=True)
+    col_top22.markdown('<p class="formquestion">NIK</p>', unsafe_allow_html=True)
     placeholder_nik = col_top22.empty()
 
-    col_top23.markdown('<p class="formquestion">Dimana kamu diperiksa?</p>', unsafe_allow_html=True)
+    col_top23.markdown('<p class="formquestion">Tempat pemeriksaan</p>', unsafe_allow_html=True)
     placeholder_place = col_top23.empty()
 
     div_main.markdown('<p style="padding-top:20px;">&nbsp;</p>', unsafe_allow_html=True)
     div_main.divider()
-    div_main.markdown('<p class="formtitle" style="text-align:center;">Risiko kamu gimana?</p>', unsafe_allow_html=True)
+    div_main.markdown('<p class="formtitle" style="text-align:center;">Risiko diri</p>', unsafe_allow_html=True)
 
 # define columns
     col_mid1, col_mid2 = div_main.columns(2, gap="large")
 
 # input form placeholders
-    col_mid1.markdown('<p class="formquestion">Berapa umurmu?</p>', unsafe_allow_html=True)
+    col_mid1.markdown('<p class="formquestion">Berapakah usia pasien saat ini?</p>', unsafe_allow_html=True)
     placeholder_age = col_mid1.empty()
     col_mid1.markdown('<p class="regular16" style="color:#505F98;">Semakin bertambah usia, risiko terkena DM2 juga cenderung meningkat.</p>', unsafe_allow_html=True)
 
-    col_mid2.markdown('<p class="formquestion">Berapa tekanan sistolmu?</p>', unsafe_allow_html=True)
+    col_mid2.markdown('<p class="formquestion">Berapakah tekanan sistol pasien?</p>', unsafe_allow_html=True)
     placeholder_systolic = col_mid2.empty()
     col_mid2.markdown('<p class="regular16" style="color:#505F98;">Tekanan sistol merupakan angka atas pada pengukuran tekanan darah. Peningkatan tekanan sistol dapat meningkatkan potensi risiko DM2.</p>', unsafe_allow_html=True)
 
     col_mid21, col_mid22 = div_main.columns(2, gap="large")
 
-    col_mid21.markdown('<p class="formquestion" style="padding-top:50px;">Apakah kamu memiliki orang tua atau saudara yang menderita diabetes?</p>', unsafe_allow_html=True)
+    col_mid21.markdown('<p class="formquestion" style="padding-top:50px;">Apakah pasien memiliki orang tua atau saudara yang menderita diabetes?</p>', unsafe_allow_html=True)
     placeholder_family_history = col_mid21.empty()
     col_mid21.markdown('<p class="regular16" style="color:#505F98;">Riwayat keluarga dengan diabetes dapat meningkatkan risiko Anda terkena DM2. Mengetahui faktor ini bisa membantu Anda lebih waspada dan mengambil langkah pencegahan yang tepat sejak dini.</p>', unsafe_allow_html=True)
 
-    col_mid22.markdown('<p class="formquestion" style="padding-top:50px;">Apakah kamu sering berolahraga, sekiranya 2 jam dalam seminggu?</p>', unsafe_allow_html=True)
+    col_mid22.markdown('<p class="formquestion" style="padding-top:50px;">Apakah pasien rutin berolahraga, setidaknya 2 jam dalam seminggu?</p>', unsafe_allow_html=True)
     placeholder_exercise = col_mid22.empty()
     col_mid22.markdown('<p class="regular16" style="color:#505F98;">Memiliki kebiasaan berolahraga secara teratur dapat berpengaruh terhadap penurunan risiko terkena DM2.</p>', unsafe_allow_html=True)
 
     col_mid31, col_mid32, col_mid33 = div_main.columns(3)
 
-    col_mid32.markdown('<p class="formquestion" style="padding-top:50px;">Apakah kamu mengkomsumsi 5 porsi buah sayur tiap harinya?</p>', unsafe_allow_html=True)
+    col_mid32.markdown('<p class="formquestion" style="padding-top:50px;">Apakah pasien mengkomsumsi 5 porsi buah sayur tiap harinya?</p>', unsafe_allow_html=True)
     placeholder_diet = col_mid32.empty()
     col_mid32.markdown('<p class="regular16" style="color:#505F98;">Pola makan yang sehat, termasuk rutin mengonsumsi buah dan sayur, dapat membantu mengurangi risiko terkena diabetes.</p>', unsafe_allow_html=True)
 
