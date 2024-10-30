@@ -184,7 +184,7 @@ col_top1.markdown('''
 ''', unsafe_allow_html=True)
 col_top1.markdown('''
     <div style="padding-bottom:10px;">
-        <div style="margin-left:auto; margin-right:auto; max-width: fit-content; background:#FFFCE7; padding:10px, 20px, 10px, 20px; color:#926c05; text-align:center;">⚠️ Catatan: Hasil prediksi ini hanya sebagai peringatan dini, bukan diagnosis medis</div>
+        <div style="margin-left:auto; margin-right:auto; max-width: fit-content; background:#FFFCE7; padding:10px, 20px, 10px, 20px; color:#926c05; text-align:center;">⚠️ Catatan: Hasil prediksi ini hanya sebagai pemeriksaan dini, bukan diagnosis medis</div>
     </div>
 ''', unsafe_allow_html=True)
 col_top2.image('Frame_4.png')
