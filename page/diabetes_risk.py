@@ -232,9 +232,9 @@ else:
     placeholder_age = col_mid1.empty()
     col_mid1.markdown('<p class="regular16" style="color:#505F98;">Semakin bertambah usia, risiko terkena DM2 juga cenderung meningkat.</p>', unsafe_allow_html=True)
 
-    col_mid2.markdown('<p class="formquestion">Berapakah tekanan sistol pasien?</p>', unsafe_allow_html=True)
+    col_mid2.markdown('<p class="formquestion">Berapakah tekanan darah sistolik pasien?</p>', unsafe_allow_html=True)
     placeholder_systolic = col_mid2.empty()
-    col_mid2.markdown('<p class="regular16" style="color:#505F98;">Tekanan sistol merupakan angka atas pada pengukuran tekanan darah. Peningkatan tekanan sistol dapat meningkatkan potensi risiko DM2.</p>', unsafe_allow_html=True)
+    col_mid2.markdown('<p class="regular16" style="color:#505F98;">Tekanan darah sistolik merupakan angka atas pada pengukuran tekanan darah. Peningkatan tekanan darah sistolik dapat meningkatkan potensi risiko DM2.</p>', unsafe_allow_html=True)
 
     col_mid21, col_mid22 = div_main.columns(2, gap="large")
 
