@@ -238,17 +238,17 @@ else:
 
     col_mid21, col_mid22 = div_main.columns(2, gap="large")
 
-    col_mid21.markdown('<p class="formquestion" style="padding-top:50px;">Apakah pasien memiliki orang tua atau saudara yang menderita diabetes?</p>', unsafe_allow_html=True)
+    col_mid21.markdown('<p class="formquestion" style="padding-top:50px;">Apakah pasien memiliki orang tua atau saudara kandung yang menderita diabetes?</p>', unsafe_allow_html=True)
     placeholder_family_history = col_mid21.empty()
     col_mid21.markdown('<p class="regular16" style="color:#505F98;">Riwayat keluarga dengan diabetes dapat meningkatkan risiko Anda terkena DM2. Mengetahui faktor ini bisa membantu Anda lebih waspada dan mengambil langkah pencegahan yang tepat sejak dini.</p>', unsafe_allow_html=True)
 
-    col_mid22.markdown('<p class="formquestion" style="padding-top:50px;">Apakah pasien rutin berolahraga, setidaknya 2 jam dalam seminggu?</p>', unsafe_allow_html=True)
+    col_mid22.markdown('<p class="formquestion" style="padding-top:50px;">Apakah pasien rutin berolahraga, setidaknya 150 menit dalam seminggu?</p>', unsafe_allow_html=True)
     placeholder_exercise = col_mid22.empty()
     col_mid22.markdown('<p class="regular16" style="color:#505F98;">Memiliki kebiasaan berolahraga secara teratur dapat berpengaruh terhadap penurunan risiko terkena DM2.</p>', unsafe_allow_html=True)
 
     col_mid31, col_mid32, col_mid33 = div_main.columns(3)
 
-    col_mid32.markdown('<p class="formquestion" style="padding-top:50px;">Apakah pasien mengkomsumsi 5 porsi buah sayur tiap harinya?</p>', unsafe_allow_html=True)
+    col_mid32.markdown('<p class="formquestion" style="padding-top:50px;">Apakah pasien mengkomsumsi 5 porsi buah atau sayur tiap harinya?</p>', unsafe_allow_html=True)
     placeholder_diet = col_mid32.empty()
     col_mid32.markdown('<p class="regular16" style="color:#505F98;">Pola makan yang sehat, termasuk rutin mengonsumsi buah dan sayur, dapat membantu mengurangi risiko terkena diabetes.</p>', unsafe_allow_html=True)
 
@@ -309,7 +309,7 @@ else:
             <p class="medium24">Risiko yang dapat dirubah</p>
             <p class="regular16" style="color:#505F98;">Risiko ini dapat dikurangi atau dirubah dengan cara menjaga lifestyle saudara</p>
             <ul>
-                <li class="inf">Tekanan sistol</li>
+                <li class="inf">Tekanan darah sistolik</li>
                 <li class="inf">Olahraga</li>
                 <li class="inf">Konsumsi sayur-buah</li>
             </ul>
