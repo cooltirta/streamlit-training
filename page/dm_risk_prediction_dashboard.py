@@ -1,6 +1,7 @@
 import streamlit as st
 
 st.title('**:material/space_dashboard: Diabetes Risk Prediction Dashboard**')
-
+main_div = st.container()
+main_div.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Introducing the Type 2 Diabetes Risk Prediction Dashboard, an annual tool for assessing diabetes risk levels across Indonesia. This dashboard categorizes individuals into low- and high-risk groups and provides a provincial map showing the distribution of predicted high-risk cases. Additionally, a lifestyle profiling table allows for a detailed comparison between high-risk and low-risk populations, supporting targeted lifestyle interventions and public health strategies.")
 st.markdown('''<a href="https://lookerstudio.google.com/reporting/0974db57-7691-4674-8914-14ead70c07d9" >Open in new tab <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,300,0,0" /><span class="material-symbols-outlined">open_in_new</span>''', unsafe_allow_html=True)
 st.markdown('''<iframe src="https://lookerstudio.google.com/embed/reporting/0974db57-7691-4674-8914-14ead70c07d9/page/r0UIE" title="description" style="height:550px; width:100%; border:solid; border-width: thin;" ></iframe>''', unsafe_allow_html=True)
