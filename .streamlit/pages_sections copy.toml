@@ -12,20 +12,6 @@ is_section = true
 path = "./page/cvd_risk.py"
 name = "Cardiovascular Disease Risk"
 icon = ":material/heart_check:"
-[[pages]]
-path = "./page/home.py"
-name = "Homepage"
-icon = ":material/home:"
-
-[[pages]]
-name = "Showcase Apps"
-icon = ""
-is_section = true
-
-[[pages]]
-path = "./page/cvd_risk.py"
-name = "Cardiovascular Disease Risk"
-icon = ":material/heart_check:"
 
 [[pages]]
 path = "./page/hypertension_risk.py"
@@ -41,25 +27,6 @@ icon = ":material/child_care:"
 path = "./page/diabetes_risk.py"
 name = "Early Detection Diabetes Risk"
 icon = ":material/glucose:"
-
-[[pages]]
-path = "./page/stunting_prediction_dashboard.py"
-name = "Stunting Prediction Dashboard"
-icon = ":material/space_dashboard:"
-
-[[pages]]
-path = "./page/dm_risk_prediction_dashboard.py"
-name = "Diabetes Risk Prediction Dashboard"
-icon = ":material/space_dashboard:"
-[[pages]]
-path = "./page/hypertension_risk.py"
-name = "Early Detection Hypertension Risk"
-icon = ":material/cardiology:"
-
-[[pages]]
-path = "./page/zscore.py"
-name = "Toddler Z-Score Calculator"
-icon = ":material/child_care:"
 
 [[pages]]
 path = "./page/stunting_prediction_dashboard.py"

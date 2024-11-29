@@ -294,17 +294,22 @@ else:
 
         probabilities  = clf.predict_proba(df)[:, 1]
 
-        threshold = 0.037
-        prediction = (probabilities >= threshold).astype(int)
+        sensitivity_80 = 0.037
+        ppv_80 = 0.66
+        
+        predict_sensitivity = (probabilities >= sensitivity_80).astype(int)
+        predict_ppv = (probabilities >= ppv_80).astype(int)
 
-        result = "Tinggi" if prediction[0] == 1 else "Rendah"
+        result_sensitivity = "Tinggi" if predict_sensitivity[0] == 1 else "Rendah"
+        result_ppv = "Tinggi" if predict_ppv[0] == 1 else "Rendah"
 
-        df['prediction'] = result
+        df['pred_risk_category_snsv_80'] = result_sensitivity
+        df['pred_risk_category_ppv_80'] = result_ppv
 
-        url = f'''https://docs.google.com/forms/d/e/1FAIpQLSfWP-9GW9NSUL2gvae4c0xDZ1dxTfeh5k7t8QIWXy6POBUqHw/formResponse?usp=pp_url&entry.1461253234={obj['name'][0]}&entry.97617893={obj['nik'][0]}&entry.771091418={obj['place'][0]}&entry.1911041054={obj['olahraga'][0]}&entry.104049788={obj['konsumsi_sayur_buah'][0]}&entry.185650305={obj['umur'][0]}&entry.1560480851={obj['sistol'][0]}&entry.761892027={obj['riwayat_keluarga_dm'][0]}&entry.1623306659={result}&entry.955067944={probabilities[0]}&entry.1459946696={obj['gds'][0]}'''
+        url = f'''https://docs.google.com/forms/d/e/1FAIpQLSfWP-9GW9NSUL2gvae4c0xDZ1dxTfeh5k7t8QIWXy6POBUqHw/formResponse?usp=pp_url&entry.1461253234={obj['name'][0]}&entry.97617893={obj['nik'][0]}&entry.771091418={obj['place'][0]}&entry.1911041054={obj['olahraga'][0]}&entry.104049788={obj['konsumsi_sayur_buah'][0]}&entry.185650305={obj['umur'][0]}&entry.1560480851={obj['sistol'][0]}&entry.761892027={obj['riwayat_keluarga_dm'][0]}&entry.955067944={probabilities[0]}&entry.2101683913={result_sensitivity}&entry.499972384={result_ppv}&entry.1459946696={obj['gds'][0]}'''
         response = requests.get(url)
 
-        res = '<b style="color:#CF2B2E;">Tinggi</b>' if result == 'Tinggi' else '<b style="color:#57855D;">Rendah</b>'''
+        # res = '<b style="color:#CF2B2E;">Tinggi</b>' if result == 'Tinggi' else '<b style="color:#57855D;">Rendah</b>'''
         div_modal = st.container()
         div_modal.success('Terima kasih kepada tenaga kesehatan dan relawan yang telah mengisi formulir pilot diabetes untuk validasi kecerdasan buatan dalam prediksi risiko DM', icon="✅")
 
