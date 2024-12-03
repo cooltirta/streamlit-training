@@ -253,7 +253,7 @@ else:
 
     col_mid21.markdown('<p class="formquestion" style="padding-top:50px;">Apakah pasien memiliki orang tua atau saudara kandung yang menderita diabetes?</p>', unsafe_allow_html=True)
     placeholder_family_history = col_mid21.empty()
-    col_mid21.markdown('<p class="regular16" style="color:#505F98;">Riwayat keluarga dengan diabetes dapat meningkatkan risiko kamu terkena DM2. Mengetahui faktor ini bisa membantu kamu lebih waspada dan mengambil langkah pencegahan yang tepat sejak dini..</p>', unsafe_allow_html=True)
+    col_mid21.markdown('<p class="regular16" style="color:#505F98;">Riwayat keluarga dengan diabetes dapat meningkatkan risiko kamu terkena DM2. Mengetahui faktor ini bisa membantu kamu lebih waspada dan mengambil langkah pencegahan yang tepat sejak dini.</p>', unsafe_allow_html=True)
 
     col_mid22.markdown('<p class="formquestion" style="padding-top:50px;">Apakah pasien rutin berolahraga, setidaknya 150 menit dalam seminggu?</p>', unsafe_allow_html=True)
     placeholder_exercise = col_mid22.empty()
@@ -261,7 +261,7 @@ else:
 
     col_mid31, col_mid32 = div_main.columns(2, gap="large")
 
-    col_mid31.markdown('<p class="formquestion" style="padding-top:50px;">Apakah pasien mengkomsumsi 5 porsi buah atau sayur tiap harinya?</p>', unsafe_allow_html=True)
+    col_mid31.markdown('<p class="formquestion" style="padding-top:50px;">Apakah pasien mengonsumsi 5 porsi buah atau sayur tiap harinya?</p>', unsafe_allow_html=True)
     placeholder_diet = col_mid31.empty()
     col_mid31.markdown('<p class="regular16" style="color:#505F98;">Pola makan yang sehat, termasuk rutin mengonsumsi buah dan sayur, dapat membantu mengurangi risiko terkena diabetes.</p>', unsafe_allow_html=True)
 
@@ -433,7 +433,7 @@ else:
     )
 
     diet = placeholder_diet.radio(
-        "Apakah kamu mengkomsumsi 5 porsi buah sayur tiap harinya?",
+        "Apakah kamu mengonsumsi 5 porsi buah sayur tiap harinya?",
         ["Ya", "Tidak"],
         index=None,
         label_visibility="collapsed",
