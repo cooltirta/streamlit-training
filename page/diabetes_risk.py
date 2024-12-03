@@ -393,8 +393,9 @@ else:
         key="nik"
     )
 
-    place = placeholder_place.text_input(
+    place = placeholder_place.selectbox(
         "Dimana kamu diperiksa?",
+        ("Fasyankes 1", "Fasyankes 2"),
         placeholder="Lokasi Periksa",
         label_visibility="collapsed",
         key="place"
