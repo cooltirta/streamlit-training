@@ -352,6 +352,19 @@ else:
     col_mid41, col_mid42, col_mid43, col_mid44 = div_main.columns(4, vertical_alignment="center")
 
     if col_mid42.button("**Submit Hasil**", type="primary"):
+        olahraga = None
+        makanan = None
+
+        if st.session_state.exercise == 'Ya':
+            olahraga = 'CUKUP'
+        elif st.session_state.exercise == 'Tidak':
+            olahraga = 'KURANG'
+
+        if st.session_state.diet == 'Ya':
+            makanan = 'CUKUP'
+        elif st.session_state.diet == 'Tidak':
+            makanan = 'KURANG'
+
         calculate_risk(
             {
                 "name": [st.session_state.name],
@@ -359,9 +372,9 @@ else:
                 "place": [st.session_state.place],
                 "umur": [st.session_state.age],
                 "sistol": [st.session_state.systolic],
-                "riwayat_keluarga_dm": [st.session_state.family_history],
-                "olahraga": [st.session_state.exercise],
-                "konsumsi_sayur_buah": [st.session_state.diet],
+                "riwayat_keluarga_dm": [st.session_state.family_history.upper()],
+                "olahraga": [olahraga],
+                "konsumsi_sayur_buah": [makanan],
                 "gds": [st.session_state.gds]
             }
 
