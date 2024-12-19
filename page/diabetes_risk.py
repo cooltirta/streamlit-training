@@ -408,7 +408,7 @@ else:
 
     place = placeholder_place.selectbox(
         "Dimana kamu diperiksa?",
-        ("Fasyankes 1", "Fasyankes 2"),
+        ("Puskesmas Cakung", "Puskesmas Tanjung Priok"),
         placeholder="Lokasi Periksa",
         label_visibility="collapsed",
         key="place"
