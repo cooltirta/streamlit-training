@@ -349,16 +349,29 @@ else:
         # ''', unsafe_allow_html=True)
 
     @st.dialog("Error", width="small")
-    def show_error():
+    def show_error(obj):
         div_modal = st.container()
-        div_modal.error('Mohon isi formulir dengan lengkap', icon="🚨")
+        value = {i for i in obj if obj[i]==None}
+        div_modal.error(f'Formulir belum lengkap: {value}', icon="🚨")
 
 # define columns
     col_mid41, col_mid42, col_mid43, col_mid44 = div_main.columns(4, vertical_alignment="center")
 
     if col_mid42.button("**Submit Hasil**", type="primary"):
-        if st.session_state.name != None or st.session_state.nik != None or st.session_state.place != None or st.session_state.age != None or st.session_state.systolic != None or st.session_state.family_history != None or st.session_state.exercise != None or st.session_state.diet != None or st.session_state.gds != None:
-            show_error()
+        if st.session_state.name == None or st.session_state.nik == None or st.session_state.place == None or st.session_state.age == None or st.session_state.systolic == None or st.session_state.family_history == None or st.session_state.exercise == None or st.session_state.diet == None or st.session_state.gds == None:
+            show_error(
+                {
+                    "Nama": st.session_state.name,
+                    "NIK": st.session_state.nik,
+                    "Tempat Pemeriksaan": st.session_state.place,
+                    "Usia": st.session_state.age,
+                    "Systolic BP": st.session_state.systolic,
+                    "Riwayat Keluarga": st.session_state.family_history,
+                    "Olahraga": st.session_state.exercise,
+                    "Konsumsi": st.session_state.diet,
+                    "Gula Darah": st.session_state.gds
+                }
+            )
         else:
             olahraga = None
             makanan = None
