@@ -354,6 +354,11 @@ else:
         value = {i for i in obj if obj[i]==None}
         div_modal.error(f'Formulir belum lengkap: {value}', icon="🚨")
 
+    @st.dialog("Error", width="small")
+    def nik_error():
+        div_modal = st.container()
+        div_modal.error(f'NIK harus angka dan 16 karakter.', icon="🚨")
+
 # define columns
     col_mid41, col_mid42, col_mid43, col_mid44 = div_main.columns(4, vertical_alignment="center")
 
@@ -372,6 +377,8 @@ else:
                     "Gula Darah": st.session_state.gds
                 }
             )
+        elif not st.session_state.nik.isdigit() or len(st.session_state.nik) != 16:
+            nik_error()
         else:
             olahraga = None
             makanan = None
