@@ -272,7 +272,7 @@ else:
     div_main.markdown('<p style="padding-top:100px;">&nbsp;</p>', unsafe_allow_html=True)
 
 # start modal dialog and def calculation
-    @st.dialog("Data Berhasil Dikirim", width="large")
+    @st.dialog("Data Berhasil Disimpan", width="large")
     def calculate_risk(obj):
         df = pd.DataFrame(obj)
 
@@ -311,7 +311,7 @@ else:
 
         # res = '<b style="color:#CF2B2E;">Tinggi</b>' if result == 'Tinggi' else '<b style="color:#57855D;">Rendah</b>'''
         div_modal = st.container()
-        div_modal.success('Terima kasih kepada tenaga kesehatan dan relawan yang telah mengisi formulir pilot diabetes untuk validasi kecerdasan buatan dalam prediksi risiko DM', icon="✅")
+        div_modal.success('Terima kasih kepada tenaga kesehatan dan relawan yang telah mengisi formulir pilot diabetes untuk memvalidasi dan menyempurnakan pemodelan kecerdasan artifisial dalam prediksi risiko DM', icon="✅")
 
         st.session_state.name = NAME
         st.session_state.nik = NIK
