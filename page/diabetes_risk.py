@@ -72,17 +72,17 @@ st.markdown('''
         }
             
         .medium24 {
-            font-size: 24px;
+            font-size: 24px !important;
             font-weight: 600;
         }
 
         .regular18 {
-            font-size: 18px;
+            font-size: 18px !important;
             font-weight: 400;
         }
 
         .regular16 {
-            font-size: 16px;
+            font-size: 16px !important;
             font-weight: 400;
         }
 
@@ -95,7 +95,7 @@ st.markdown('''
             border: none;
             background: #111B47;
             color: white;
-            font-size: 24px;
+            font-size: 24px !important;
             font-weight: 600;
             text-align: center;
             margin-top: 25px;
@@ -103,12 +103,12 @@ st.markdown('''
         }
 
         .formtitle {
-            font-size: 40px;
+            font-size: 40px !important;
             font-weight: 600;
         }
 
         .formquestion {
-            font-size: 32px;
+            font-size: 32px !important;
             font-weight: 600;
         }
 
@@ -121,7 +121,7 @@ st.markdown('''
             border: none;
             background: #7FAA2B;
             color: white;
-            font-size: 24px;
+            font-size: 24px !important;
             font-weight: 600;
             text-align: center;
         }
@@ -135,7 +135,7 @@ st.markdown('''
             border: none;
             background: #A3185B;
             color: white;
-            font-size: 24px;
+            font-size: 24px !important;
             font-weight: 600;
             text-align: center;
         }
@@ -169,7 +169,7 @@ st.markdown('''
         }
 
         .inf {
-            font-size: 20px;
+            font-size: 20px !important;
             font-weight: 700;
             line-height: 26px;
             text-align: left;
