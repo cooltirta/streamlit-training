@@ -67,7 +67,7 @@ st.markdown('''
         }
         
         .medium50 {
-            font-size: 50px;
+            font-size: 50px !important;
             font-weight: 600;
         }
             
