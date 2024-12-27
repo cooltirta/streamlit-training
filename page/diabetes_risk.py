@@ -247,7 +247,7 @@ else:
 
     col_mid2.markdown('<p class="formquestion">Berapa tekanan darah sistolik pasien?</p>', unsafe_allow_html=True)
     placeholder_systolic = col_mid2.empty()
-    col_mid2.markdown('<p class="regular16" style="color:#505F98;">Tekanan sistol merupakan angka atas pada pengukuran tekanan darah. Peningkatan tekanan sistol dapat meningkatkan potensi risiko DM2.</p>', unsafe_allow_html=True)
+    col_mid2.markdown('<p class="regular16" style="color:#505F98;">Tekanan darah sistolik merupakan angka atas pada pengukuran tekanan darah. Peningkatan tekanan darah sistolik dapat meningkatkan potensi risiko DM2.<br>Jika pasien telah terdiagnosa hipertensi, masukkan tekanan sistolik tertinggi dari pemeriksaan sebelumnya. Jika belum, lakukan pengukuran tekanan sistolik saat ini dan masukkan hasilnya.</p>', unsafe_allow_html=True)
 
     col_mid21, col_mid22 = div_main.columns(2, gap="large")
 
@@ -263,7 +263,7 @@ else:
 
     col_mid31.markdown('<p class="formquestion" style="padding-top:50px;">Apakah pasien mengonsumsi 5 porsi buah atau sayur tiap harinya?</p>', unsafe_allow_html=True)
     placeholder_diet = col_mid31.empty()
-    col_mid31.markdown('<p class="regular16" style="color:#505F98;">Pola makan yang sehat, termasuk rutin mengonsumsi buah dan sayur, dapat membantu mengurangi risiko terkena diabetes.</p>', unsafe_allow_html=True)
+    col_mid31.markdown('<p class="regular16" style="color:#505F98;">Pola makan yang sehat, termasuk rutin mengonsumsi buah dan sayur, dapat membantu mengurangi risiko terkena diabetes.<br>Definisi porsi:<ul><li class="regular16" style="color:#505F98;">Porsi buah setara dengan satu buah pisang ambon ukuran sedang, satu potong pepaya ukuran sedang, satu buah jeruk ukuran sedang, atau satu buah apel merah kecil.</li><li class="regular16" style="color:#505F98;">Porsi sayur setara dengan satu gelas sayuran yang telah dimasak dan ditiriskan.</li></ul></p>', unsafe_allow_html=True)
 
     col_mid32.markdown('<p class="formquestion" style="padding-top:50px;">Berapakah gula darah sewaktu pasien saat ini?</p>', unsafe_allow_html=True)
     placeholder_gds = col_mid32.empty()
