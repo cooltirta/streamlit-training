@@ -1,18 +1,38 @@
 import streamlit as st
 from st_pages import add_page_title, get_nav_from_toml
+from streamlit_js_eval import get_page_location
 import base64
+from urllib.parse import unquote
+
+def change_language():
+    st.session_state.language = st.session_state.selected_language
+
+if "language" not in st.session_state:
+    st.session_state.language = "ID"
+
+st.session_state.selected_language = st.session_state.language
 
 def image_to_base64(image_path):
     with open(image_path, "rb") as image_file:
         return base64.b64encode(image_file.read()).decode("utf-8")
 
 st.set_page_config(layout="wide")
+
+language = st.segmented_control(
+    "Pilih Bahasa / Select Language:",
+    ["ID", "EN"],
+    key="selected_language",
+    on_change=change_language,
+    label_visibility="collapsed"
+)
+
 image_base64 = image_to_base64("./main_logo.png")
 st.markdown(
     f"""
     <style>
     .align-right {{
         text-align: right;
+        float: right;
     }}
     </style>
     <div class="align-right">
@@ -44,3 +64,7 @@ pg = st.navigation(pages, position='hidden')
 
 # Run the app with navigation
 pg.run()
+
+test_url = get_page_location()["search"]
+breakdown_url = unquote(test_url).replace("?streamlitUrl=", "").split("/")
+st.write()
