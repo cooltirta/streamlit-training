@@ -1,6 +1,6 @@
 import streamlit as st
 from st_pages import add_page_title, get_nav_from_toml
-from streamlit_js_eval import get_page_location
+# from streamlit_js_eval import get_page_location
 import base64
 from urllib.parse import unquote
 
@@ -64,7 +64,3 @@ pg = st.navigation(pages, position='hidden')
 
 # Run the app with navigation
 pg.run()
-
-test_url = get_page_location()["search"]
-breakdown_url = unquote(test_url).replace("?streamlitUrl=", "").split("/")
-st.write()
