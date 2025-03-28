@@ -52,7 +52,8 @@ pages = {
         st.Page("./page/zscore.py", title="Toddler Z-Score Calculator"),
         st.Page("./page/diabetes_risk.py", title="Early Detection Diabetes Risk"),
         st.Page("./page/stunting_prediction_dashboard.py", title="Stunting Prediction Dashboard"),
-        st.Page("./page/dm_risk_prediction_dashboard.py", title="Diabetes Risk Prediction Dashboard")
+        st.Page("./page/dm_risk_prediction_dashboard.py", title="Diabetes Risk Prediction Dashboard"),
+        st.Page("./page/bmi_calculator.py", title="BMI Calculator")
     ],
 }
 

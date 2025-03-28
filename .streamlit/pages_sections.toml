@@ -70,3 +70,8 @@ icon = ":material/space_dashboard:"
 path = "./page/dm_risk_prediction_dashboard.py"
 name = "Diabetes Risk Prediction Dashboard"
 icon = ":material/space_dashboard:"
+
+[[pages]]
+path = "./page/bmi_calculator.py"
+name = "BMI Calculator"
+icon = ":material/readiness_score:"

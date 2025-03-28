@@ -17,8 +17,8 @@ diabetes_password = st.secrets["DIABETES_PASSWORD"]
 NAME = None
 NIK = None
 PLACE = None
-AGE = 15
-SYSTOLIC = 60
+AGE = None
+SYSTOLIC = None
 FAMILY_HISTORY = None
 EXERCISE = None
 DIET = None
@@ -26,8 +26,8 @@ DIET = None
 
 LANGUAGE_PACK = {
     'title': {
-        'ID': 'Uji Coba Prediksi Risiko Diabetes',
-        'EN': 'Diabetes Risk Prediction Trial'
+        'ID': 'Ketahui Risiko Diabetes Kamu',
+        'EN': 'Know Your Diabetes Risk'
     },
     'subtitle1': {
         'ID': 'Pengukuran risiko ini disertai deskripsi untuk memudahkan masyarakat menjawab setiap pertanyaan faktor risiko diabetes melitus (DM) tipe 2. Mohon mengisi dengan benar karena akan mempengaruhi hasil pengukuran.',
@@ -62,8 +62,8 @@ LANGUAGE_PACK = {
         'EN': 'Patient ID'
     },
     'form1location': {
-        'ID': 'Tempat Pemeriksaan',
-        'EN': 'Examination Location'
+        'ID': 'Fasilitas Kesehatan Tingkat Pertama (FKTP) JKN',
+        'EN': '</br>Primary Healthcare Facility'
     },
     'form2header': {
         'ID': 'Risiko diri',
@@ -232,8 +232,8 @@ LANGUAGE_PACK = {
         'EN': 'Continue maintaining a healthy lifestyle by following these steps:'
     },
     'resultlowdesca': {
-        'ID': 'Menjaga berat badan ideal',
-        'EN': 'Maintain an ideal body weight'
+        'ID': 'Menjaga berat badan ideal (<a href="./bmi_calculator" target="_blank">ukur disini</a>)',
+        'EN': 'Maintain an ideal body weight (<a href="./bmi_calculator" target="_blank">measure here</a>)'
     },
     'resultlowdescb': {
         'ID': 'Melakukan aktivitas fisik selama 30 menit per hari, 5 kali seminggu secara teratur',
@@ -258,6 +258,18 @@ LANGUAGE_PACK = {
     'resultlowdesc2': {
         'ID': 'Kami juga menyarankan Anda untuk dapat berkonsultasi secara langsung dengan dokter atau tenaga medis profesional untuk berdiskusi mengenai faktor risiko DM tipe 2.',
         'EN': 'We also recommend that you consult directly with a doctor or healthcare professional to discuss your risk factors for type 2 diabetes.'
+    },
+    'locationoption': {
+        'ID': 'Tidak Tahu',
+        'EN': 'Unknown'
+    },
+    'nameplaceholder': {
+        'ID': 'Nama Lengkap',
+        'EN': 'Full Name'
+    },
+    'locationplaceholder': {
+        'ID': 'Lokasi Periksa',
+        'EN': 'Examination Location'
     },
 }
 
@@ -464,10 +476,10 @@ div_main.markdown(f'''<p class="formtitle" style="text-align:center;">{LANGUAGE_
 # define columns    
 col_top21, col_top22, col_top23 = div_main.columns(3, vertical_alignment="center")
 
-col_top21.markdown(f'''<p class="formquestion">{LANGUAGE_PACK["form1name"][st.session_state.language]}</p>''', unsafe_allow_html=True)
+col_top21.markdown(f'''<p class="formquestion"></br>{LANGUAGE_PACK["form1name"][st.session_state.language]}</p>''', unsafe_allow_html=True)
 placeholder_name = col_top21.empty()
 
-col_top22.markdown(f'''<p class="formquestion">{LANGUAGE_PACK["form1nik"][st.session_state.language]}</p>''', unsafe_allow_html=True)
+col_top22.markdown(f'''<p class="formquestion"></br>{LANGUAGE_PACK["form1nik"][st.session_state.language]}</p>''', unsafe_allow_html=True)
 placeholder_nik = col_top22.empty()
 
 col_top23.markdown(f'''<p class="formquestion">{LANGUAGE_PACK["form1location"][st.session_state.language]}</p>''', unsafe_allow_html=True)
@@ -687,7 +699,7 @@ if col_mid43.button('**Reset Form**', type='secondary'):
 # define input forms
 name = placeholder_name.text_input(
     "Nama kamu siapa?",
-    placeholder="Nama Lengkap",
+    placeholder=LANGUAGE_PACK["nameplaceholder"][st.session_state.language],
     label_visibility="collapsed",
     key="name"
 )
@@ -701,8 +713,8 @@ nik = placeholder_nik.text_input(
 
 place = placeholder_place.selectbox(
     "Dimana kamu diperiksa?",
-    ("Puskesmas Cakung", "Puskesmas Tanjung Priok"),
-    placeholder="Lokasi Periksa",
+    (LANGUAGE_PACK["locationoption"][st.session_state.language], "Puskesmas Cakung", "Puskesmas Tanjung Priok"),
+    placeholder=LANGUAGE_PACK["locationplaceholder"][st.session_state.language],
     label_visibility="collapsed",
     key="place"
 )
@@ -711,6 +723,7 @@ age = placeholder_age.number_input(
     "Berapa umurmu?",
     min_value=15,
     max_value=100,
+    value=None,
     label_visibility="collapsed",
     key="age"
 )
@@ -719,6 +732,7 @@ systolic = placeholder_systolic.number_input(
     "Berapa tekanan sistolmu?",
     min_value=60,
     max_value=600,
+    value=None,
     label_visibility="collapsed",
     key="systolic"
 )
