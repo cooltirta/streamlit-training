@@ -232,8 +232,8 @@ LANGUAGE_PACK = {
         'EN': 'Continue maintaining a healthy lifestyle by following these steps:'
     },
     'resultlowdesca': {
-        'ID': 'Menjaga berat badan ideal (<a href="./bmi_calculator" target="_blank">ukur disini</a>)',
-        'EN': 'Maintain an ideal body weight (<a href="./bmi_calculator" target="_blank">measure here</a>)'
+        'ID': 'Menjaga berat badan ideal (<a href="/bmi_calculator" target="_blank">ukur disini</a>)',
+        'EN': 'Maintain an ideal body weight (<a href="/bmi_calculator" target="_blank">measure here</a>)'
     },
     'resultlowdescb': {
         'ID': 'Melakukan aktivitas fisik selama 30 menit per hari, 5 kali seminggu secara teratur',
